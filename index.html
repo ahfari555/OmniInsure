@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Meta Tags for US Audience -->
+  <title>OmniInsure - Advanced US Insurance & Policy Calculators Suite</title>
+  <meta name="description" content="100% free US insurance calculators. Estimate auto, home, and life insurance policies, evaluate health deductibles, and analyze coverage needs instantly.">
+  <meta name="keywords" content="auto insurance calculator, home insurance estimator, life insurance needs, health insurance deductible analyzer, us policy tools">
+  <meta name="author" content="OmniInsure">
+  <meta name="robots" content="index, follow">
+
+  <!-- Google Search Console Verification Tag -->
+  <meta name="google-site-verification" content="google45274bc7d9133ca5" />
+
+  <!-- Google AdSense Script -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2805918301542012" crossorigin="anonymous"></script>
+
+  <!-- Favicon SVG -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛡️</text></svg>">
+
+  <!-- Google Font: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Plus Jakarta Sans', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background: linear-gradient(135deg, #f0fdfa 0%, #f1f5f9 50%, #e0f2fe 100%);
+      transition: background-color 0.3s ease;
+    }
+    html.dark body {
+      background: linear-gradient(135deg, #022c22 0%, #0f172a 50%, #082f49 100%);
+      color: #f8fafc;
+    }
+    .pastel-card {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(204, 251, 241, 0.8);
+      box-shadow: 0 10px 30px -10px rgba(13, 148, 136, 0.1);
+      transition: all 0.3s ease;
+    }
+    html.dark .pastel-card {
+      background: rgba(30, 41, 59, 0.7);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    }
+    .gradient-text {
+      background: linear-gradient(135deg, #0d9488 0%, #0284c7 50%, #2563eb 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    html.dark .gradient-text {
+      background: linear-gradient(135deg, #2dd4bf 0%, #38bdf8 50%, #60a5fa 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+  </style>
+</head>
+<body class="font-sans min-h-screen flex flex-col antialiased text-slate-800 dark:text-slate-100">
+
+  <!-- TOP NAVBAR -->
+  <header class="sticky top-0 z-50 bg-white/70 dark:bg-slate-900/80 backdrop-blur-md border-b border-teal-100 dark:border-slate-800 px-6 py-4">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-teal-500 via-cyan-500 to-blue-600 flex items-center justify-center font-black text-xl text-white shadow-md">
+          🛡️
+        </div>
+        <span class="text-xl font-extrabold tracking-tight text-slate-800 dark:text-white">Omni<span class="gradient-text">Insure</span></span>
+      </a>
+
+      <div class="flex items-center gap-3">
+        <span class="hidden sm:inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-teal-50 dark:bg-teal-950 text-teal-600 dark:text-teal-400 border border-teal-200 dark:border-teal-800">
+          <span class="w-2 h-2 rounded-full bg-teal-500 animate-pulse"></span> 100% Client-Side Privacy
+        </span>
+        <button onclick="toggleDarkMode()" class="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-amber-400 hover:bg-slate-200 dark:hover:bg-slate-700 transition">
+          <span id="themeIcon">🌙</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="max-w-7xl mx-auto px-6 pt-10 pb-6 text-center">
+    <span class="text-xs font-bold uppercase tracking-wider text-teal-600 dark:text-teal-400 bg-teal-50 dark:bg-teal-950 px-3 py-1 rounded-full border border-teal-100 dark:border-teal-900 mb-3 inline-block">Advanced US Insurance Policy Suite</span>
+    <h1 class="text-3xl md:text-5xl font-black tracking-tight text-slate-800 dark:text-white mb-3">
+      Comprehensive US Insurance & <span class="gradient-text">Premium Calculators.</span>
+    </h1>
+    <p class="text-slate-500 dark:text-slate-400 text-sm md:text-base max-w-2xl mx-auto font-medium">
+      Accurately estimate auto, home, life, and health insurance policy figures instantly without tracking or personal data collection.
+    </p>
+  </section>
+
+  <!-- MAIN CONTAINER -->
+  <main class="max-w-7xl mx-auto px-6 py-6 flex-1 w-full space-y-8">
+
+    <!-- TAB NAVIGATION -->
+    <div class="flex justify-center mb-4">
+      <div class="bg-slate-200/70 dark:bg-slate-800 p-1.5 rounded-2xl flex flex-wrap gap-2 justify-center">
+        <button onclick="switchTab('auto')" id="tabBtnAuto" class="px-4 py-2 rounded-xl text-xs font-bold transition bg-white dark:bg-slate-700 text-slate-800 dark:text-white shadow-sm">🚗 Auto Insurance</button>
+        <button onclick="switchTab('home')" id="tabBtnHome" class="px-4 py-2 rounded-xl text-xs font-bold transition text-slate-600 dark:text-slate-400 hover:text-slate-800">🏠 Home Insurance</button>
+        <button onclick="switchTab('life')" id="tabBtnLife" class="px-4 py-2 rounded-xl text-xs font-bold transition text-slate-600 dark:text-slate-400 hover:text-slate-800">👨‍👩‍👧 Life (DIME)</button>
+        <button onclick="switchTab('health')" id="tabBtnHealth" class="px-4 py-2 rounded-xl text-xs font-bold transition text-slate-600 dark:text-slate-400 hover:text-slate-800">🏥 Health Out-of-Pocket</button>
+        <button onclick="switchTab('deductible')" id="tabBtnDeductible" class="px-4 py-2 rounded-xl text-xs font-bold transition text-slate-600 dark:text-slate-400 hover:text-slate-800">⚖️ Deductible Analyzer</button>
+      </div>
+    </div>
+
+    <!-- TAB 1: AUTO INSURANCE ESTIMATOR -->
+    <div id="tabContentAuto" class="pastel-card p-6 md:p-8 rounded-3xl space-y-6">
+      <div>
+        <h2 class="text-lg font-black text-slate-800 dark:text-white mb-1">🚗 US Auto Insurance Rate Estimator</h2>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Calculate an estimated annual premium for full coverage car insurance based on national averages and regional risk factors.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Driver Age Group:</label>
+          <select id="autoAge" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+            <option value="teen">16 - 24 Years Old (High Risk)</option>
+            <option value="adult" selected>25 - 64 Years Old (Standard)</option>
+            <option value="senior">65+ Years Old (Senior)</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">State Risk Tier:</label>
+          <select id="autoState" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+            <option value="low">Low Cost States (e.g., OH, ME, ID)</option>
+            <option value="med" selected>Average States (e.g., TX, IL, PA)</option>
+            <option value="high">High Cost States (e.g., MI, FL, NY, CA)</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Vehicle Type:</label>
+          <select id="autoVehicle" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+            <option value="sedan" selected>Standard Sedan / Compact</option>
+            <option value="suv">SUV / Minivan</option>
+            <option value="luxury">Luxury / Sports Car</option>
+          </select>
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Driving Record (Past 3 Years):</label>
+          <select id="autoRecord" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+            <option value="clean" selected>Clean (No Tickets/Accidents)</option>
+            <option value="minor">1 Minor Ticket (Speeding)</option>
+            <option value="major">At-Fault Accident / DUI</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button onclick="calculateAuto()" class="bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-3 px-6 rounded-xl text-xs transition shadow-md">
+          Estimate Annual Premium 📊
+        </button>
+      </div>
+
+      <div id="autoResult" class="hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 space-y-3">
+        <div class="text-sm font-extrabold text-slate-800 dark:text-white">Estimated Full Coverage Premium:</div>
+        <div class="flex items-center gap-4">
+          <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 flex-1 text-center">
+            <div class="text-[10px] uppercase font-bold text-slate-400">Yearly Estimate</div>
+            <div id="resAutoYear" class="text-2xl font-black text-teal-600 dark:text-teal-400">$0</div>
+          </div>
+          <div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-700 flex-1 text-center">
+            <div class="text-[10px] uppercase font-bold text-slate-400">Monthly Approx.</div>
+            <div id="resAutoMonth" class="text-2xl font-black text-blue-600 dark:text-blue-400">$0</div>
+          </div>
+        </div>
+        <p class="text-[10px] text-slate-500 text-center mt-2">*Note: Educational estimate based on US national averages.</p>
+      </div>
+    </div>
+
+    <!-- TAB 2: HOMEOWNERS INSURANCE ESTIMATOR -->
+    <div id="tabContentHome" class="hidden pastel-card p-6 md:p-8 rounded-3xl space-y-6">
+      <div>
+        <h2 class="text-lg font-black text-slate-800 dark:text-white mb-1">🏠 US Homeowners Insurance Estimator</h2>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Estimate annual dwelling insurance costs based on your home's replacement value and regional risk profile.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Estimated Dwelling Replacement Value ($):</label>
+          <input type="number" id="homeValue" placeholder="e.g., 300000" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Regional Disaster Risk Tier:</label>
+          <select id="homeRisk" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+            <option value="low">Low Risk (Midwest / Standard Zones)</option>
+            <option value="med" selected>Moderate Risk (Suburban / General)</option>
+            <option value="high">High Risk (Hurricane/Wildfire Zones e.g., FL, CA)</option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button onclick="calculateHome()" class="bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-3 px-6 rounded-xl text-xs transition shadow-md">
+          Calculate Home Insurance 🏡
+        </button>
+      </div>
+
+      <div id="homeResult" class="hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 text-center space-y-2">
+        <div class="text-[10px] uppercase font-bold text-slate-500">Estimated Annual Home Insurance Premium:</div>
+        <div id="resHomeTotal" class="text-3xl font-black text-teal-600 dark:text-teal-400">$0</div>
+        <p class="text-[11px] text-slate-600 dark:text-slate-400 mt-2">Includes standard HO-3 policy benchmarks covering dwelling, personal property, and liability protection.</p>
+      </div>
+    </div>
+
+    <!-- TAB 3: LIFE INSURANCE (DIME) -->
+    <div id="tabContentLife" class="hidden pastel-card p-6 md:p-8 rounded-3xl space-y-6">
+      <div>
+        <h2 class="text-lg font-black text-slate-800 dark:text-white mb-1">👨‍👩‍👧 Life Insurance Coverage Needs (DIME Method)</h2>
+        <p class="text-xs text-slate-500 dark:text-slate-400">The DIME method (Debt, Income, Mortgage, Education) is the gold standard for calculating term life insurance requirements.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Total Outstanding Debt ($):</label>
+          <input type="number" id="lifeDebt" placeholder="Credit cards, loans (exclude mortgage)" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Annual Income to Replace ($):</label>
+          <input type="number" id="lifeIncome" placeholder="e.g., 60000" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Years to Provide Income:</label>
+          <input type="number" id="lifeYears" placeholder="e.g., 10" value="10" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Mortgage Balance ($):</label>
+          <input type="number" id="lifeMortgage" placeholder="Remaining home loan" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+        <div class="md:col-span-2">
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Children's Education Costs ($):</label>
+          <input type="number" id="lifeEdu" placeholder="Est. college tuition total" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+      </div>
+
+      <div>
+        <button onclick="calculateLife()" class="bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-3 px-6 rounded-xl text-xs transition shadow-md">
+          Calculate Coverage Needed 🛡️
+        </button>
+      </div>
+
+      <div id="lifeResult" class="hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 text-center space-y-2">
+        <div class="text-[10px] uppercase font-bold text-slate-500">Recommended Term Life Coverage:</div>
+        <div id="resLifeTotal" class="text-3xl font-black text-cyan-600 dark:text-cyan-400">$0</div>
+        <p class="text-[11px] text-slate-600 dark:text-slate-400 mt-2">Guarantees financial security for mortgage clearance, family debts, and educational milestones.</p>
+      </div>
+    </div>
+
+    <!-- TAB 4: HEALTH INSURANCE OUT-OF-POCKET ANALYZER -->
+    <div id="tabContentHealth" class="hidden pastel-card p-6 md:p-8 rounded-3xl space-y-6">
+      <div>
+        <h2 class="text-lg font-black text-slate-800 dark:text-white mb-1">🏥 Health Insurance Out-of-Pocket Cost Estimator</h2>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Estimate your maximum annual financial exposure by combining yearly premiums with your health plan's out-of-pocket maximum limit.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Monthly Premium ($):</label>
+          <input type="number" id="healthPrem" placeholder="e.g., 350" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Plan Deductible ($):</label>
+          <input type="number" id="healthDed" placeholder="e.g., 2000" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-600 dark:text-slate-300 block mb-1">Out-of-Pocket Max ($):</label>
+          <input type="number" id="healthMax" placeholder="e.g., 6500" class="w-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl p-3 text-xs font-medium focus:outline-none">
+        </div>
+      </div>
+
+      <div>
+        <button onclick="calculateHealth()" class="bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-3 px-6 rounded-xl text-xs transition shadow-md">
+          Calculate Maximum Exposure 🩺
+        </button>
+      </div>
+
+      <div id="healthResult" class="hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 text-center space-y-2">
+        <div class="text-[10px] uppercase font-bold text-slate-500">Max Annual Medical Financial Exposure:</div>
+        <div id="resHealthTotal" class="text-3xl font-black text-blue-600 dark:text-blue-400">$0</div>
+        <p class="text-[11px] text-slate-600 dark:text-slate-400 mt-2">Total annual premiums paid plus your statutory out-of-pocket maximum ceiling.</p>
+      </div>
+    </div>
+
+    <!-- TAB 5: DEDUCTIBLE ANALYZER -->
+    <div id="tabContentDeductible" class="hidden pastel-card p-6 md:p-8 rounded-3xl space-y-6">
+      <div>
+        <h2 class="text-lg font-black text-slate-800 dark:text-white mb-1">⚖️ Deductible vs. Premium Analyzer</h2>
+        <p class="text-xs text-slate-500 dark:text-slate-400">Evaluate whether selecting a higher deductible yields worthwhile break-even premium savings over time.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div class="p-4 border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800">
+          <h3 class="text-xs font-bold text-slate-800 dark:text-white mb-3">Option A: Low Deductible</h3>
+          <div class="space-y-3">
+            <div>
+              <label class="text-[10px] font-bold text-slate-500 uppercase">Deductible Amount ($)</label>
+              <input type="number" id="dedLowAmt" value="500" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg p-2 text-xs">
+            </div>
+            <div>
+              <label class="text-[10px] font-bold text-slate-500 uppercase">Annual Premium ($)</label>
+              <input type="number" id="dedLowPrem" value="1200" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg p-2 text-xs">
+            </div>
+          </div>
+        </div>
+        
+        <div class="p-4 border border-slate-200 dark:border-slate-700 rounded-xl bg-white dark:bg-slate-800">
+          <h3 class="text-xs font-bold text-slate-800 dark:text-white mb-3">Option B: High Deductible</h3>
+          <div class="space-y-3">
+            <div>
+              <label class="text-[10px] font-bold text-slate-500 uppercase">Deductible Amount ($)</label>
+              <input type="number" id="dedHighAmt" value="1000" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg p-2 text-xs">
+            </div>
+            <div>
+              <label class="text-[10px] font-bold text-slate-500 uppercase">Annual Premium ($)</label>
+              <input type="number" id="dedHighPrem" value="1000" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg p-2 text-xs">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button onclick="calculateDeductible()" class="bg-gradient-to-r from-teal-500 to-cyan-600 hover:from-teal-600 hover:to-cyan-700 text-white font-bold py-3 px-6 rounded-xl text-xs transition shadow-md">
+          Analyze Break-Even Point 🔍
+        </button>
+      </div>
+
+      <div id="deductibleResult" class="hidden bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-2xl p-6 text-center space-y-2">
+        <div id="resDedText" class="text-sm font-bold text-slate-800 dark:text-white"></div>
+        <div id="resDedYears" class="text-2xl font-black text-blue-600 dark:text-blue-400"></div>
+      </div>
+    </div>
+
+    <!-- SEO ARTICLE SECTION FOR HIGH CPC -->
+    <section class="pastel-card p-8 rounded-3xl space-y-4">
+      <h2 class="text-xl font-black text-slate-800 dark:text-white">Navigating US Insurance Frameworks & Cost Optimization</h2>
+      <p class="text-xs md:text-sm text-slate-600 dark:text-slate-300 leading-relaxed font-medium">
+        Securing proper financial protection across auto, home, life, and health sectors is essential for long-term stability in the United States. <strong>OmniInsure</strong> empowers consumers with independent, client-side browser tools designed to estimate policy benchmarks accurately without exposing personal data to aggressive lead-generation marketing.
+      </p>
+
+      <h3 class="text-base font-bold text-slate-800 dark:text-white pt-2">Key Strategies for Managing Insurance Expenses</h3>
+      <ul class="list-disc list-inside text-xs md:text-sm text-slate-600 dark:text-slate-300 space-y-1.5 font-medium">
+        <li><strong>Multi-Policy Bundling:</strong> Combining auto and homeowners insurance under a single carrier frequently unlocks composite discounts.</li>
+        <li><strong>Deductible Optimization:</strong> Choosing higher deductibles reduces monthly outlays if you maintain an emergency buffer for unexpected claims.</li>
+        <li><strong>Term vs. Permanent Life:</strong> Term life insurance generally provides substantial income replacement protection at a fraction of whole-life costs.</li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-teal-100 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 py-8 text-center text-xs text-slate-500 dark:text-slate-400 font-medium mt-12">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p>© 2026 OmniInsure. Independent Educational Calculators. Not formal insurance broker advice.</p>
+      <div class="flex gap-6">
+        <a href="privacy.html" class="hover:text-slate-800 dark:hover:text-white transition">Privacy Policy</a>
+        <a href="terms.html" class="hover:text-slate-800 dark:hover:text-white transition">Terms of Service</a>
+        <a href="contact.html" class="hover:text-slate-800 dark:hover:text-white transition">Contact Us</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JAVASCRIPT LOGIC -->
+  <script>
+    function toggleDarkMode() {
+      if (document.documentElement.classList.contains('dark')) {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+        document.getElementById('themeIcon').innerText = '🌙';
+      } else {
+        document.documentElement.classList.remove('light');
+        document.documentElement.classList.add('dark');
+        document.getElementById('themeIcon').innerText = '☀️';
+      }
+    }
+
+    function switchTab(tab) {
+      const tabs = ['auto', 'home', 'life', 'health', 'deductible'];
+      tabs.forEach(t => {
+        const btn = document.getElementById('tabBtn' + t.charAt(0).toUpperCase() + t.slice(1));
+        const con = document.getElementById('tabContent' + t.charAt(0).toUpperCase() + t.slice(1));
+        if (btn && con) {
+          if (t === tab) {
+            btn.className = "px-4 py-2 rounded-xl text-xs font-bold transition bg-white dark:bg-slate-700 text-slate-800 dark:text-white shadow-sm";
+            con.classList.remove('hidden');
+          } else {
+            btn.className = "px-4 py-2 rounded-xl text-xs font-bold transition text-slate-600 dark:text-slate-400 hover:text-slate-800";
+            con.classList.add('hidden');
+          }
+        }
+      });
+    }
+
+    // Auto Insurance Calculator
+    function calculateAuto() {
+      let base = 1200;
+      const age = document.getElementById('autoAge').value;
+      const state = document.getElementById('autoState').value;
+      const vehicle = document.getElementById('autoVehicle').value;
+      const record = document.getElementById('autoRecord').value;
+
+      if (age === 'teen') base *= 1.8;
+      else if (age === 'senior') base *= 1.1;
+
+      if (state === 'high') base *= 1.4;
+      else if (state === 'low') base *= 0.8;
+
+      if (vehicle === 'luxury') base *= 1.5;
+      else if (vehicle === 'suv') base *= 1.1;
+
+      if (record === 'minor') base *= 1.25;
+      else if (record === 'major') base *= 1.6;
+
+      const yearly = Math.round(base);
+      const monthly = Math.round(yearly / 12);
+
+      document.getElementById('resAutoYear').innerText = '$' + yearly.toLocaleString();
+      document.getElementById('resAutoMonth').innerText = '$' + monthly.toLocaleString();
+      document.getElementById('autoResult').classList.remove('hidden');
+    }
+
+    // Homeowners Insurance Calculator
+    function calculateHome() {
+      const val = parseFloat(document.getElementById('homeValue').value) || 250000;
+      const risk = document.getElementById('homeRisk').value;
+      let rate = 0.004; // ~0.4% baseline of dwelling value
+
+      if (risk === 'high') rate = 0.008;
+      else if (risk === 'low') rate = 0.003;
+
+      const total = Math.round(val * rate);
+      document.getElementById('resHomeTotal').innerText = '$' + total.toLocaleString();
+      document.getElementById('homeResult').classList.remove('hidden');
+    }
+
+    // Life Insurance Calculator (DIME Method)
+    function calculateLife() {
+      const debt = parseFloat(document.getElementById('lifeDebt').value) || 0;
+      const income = parseFloat(document.getElementById('lifeIncome').value) || 0;
+      const years = parseFloat(document.getElementById('lifeYears').value) || 0;
+      const mortgage = parseFloat(document.getElementById('lifeMortgage').value) || 0;
+      const edu = parseFloat(document.getElementById('lifeEdu').value) || 0;
+
+      const total = debt + (income * years) + mortgage + edu;
+
+      document.getElementById('resLifeTotal').innerText = '$' + total.toLocaleString();
+      document.getElementById('lifeResult').classList.remove('hidden');
+    }
+
+    // Health Insurance Calculator
+    function calculateHealth() {
+      const prem = parseFloat(document.getElementById('healthPrem').value) || 0;
+      const max = parseFloat(document.getElementById('healthMax').value) || 0;
+      const annualPrem = prem * 12;
+      const totalExposure = annualPrem + max;
+
+      document.getElementById('resHealthTotal').innerText = '$' + totalExposure.toLocaleString();
+      document.getElementById('healthResult').classList.remove('hidden');
+    }
+
+    // Deductible Analyzer
+    function calculateDeductible() {
+      const lowAmt = parseFloat(document.getElementById('dedLowAmt').value) || 0;
+      const lowPrem = parseFloat(document.getElementById('dedLowPrem').value) || 0;
+      const highAmt = parseFloat(document.getElementById('dedHighAmt').value) || 0;
+      const highPrem = parseFloat(document.getElementById('dedHighPrem').value) || 0;
+
+      const dedDiff = highAmt - lowAmt;
+      const premDiff = lowPrem - highPrem;
+      
+      const resBox = document.getElementById('deductibleResult');
+      const resText = document.getElementById('resDedText');
+      const resYears = document.getElementById('resDedYears');
+
+      if (premDiff <= 0) {
+        resText.innerText = "The high deductible option doesn't yield net premium savings.";
+        resYears.innerText = "N/A";
+      } else {
+        const yearsToBreakEven = (dedDiff / premDiff).toFixed(1);
+        resText.innerText = `Higher deductible increases risk exposure by $${dedDiff}, saving $${premDiff}/year. Break-even point:`
+        resYears.innerText = `${yearsToBreakEven} Years without an accident claim`;
+      }
+      resBox.classList.remove('hidden');
+    }
+  </script>
+</body>
+</html>
