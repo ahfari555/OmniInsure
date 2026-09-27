@@ -439,7 +439,7 @@
     function calculateHome() {
       const val = parseFloat(document.getElementById('homeValue').value) || 250000;
       const risk = document.getElementById('homeRisk').value;
-      let rate = 0.004; // ~0.4% baseline of dwelling value
+      let rate = 0.004;
 
       if (risk === 'high') rate = 0.008;
       else if (risk === 'low') rate = 0.003;
